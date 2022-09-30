@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
 	color: #cacaca;
+	text-align: justify;
 	font-family:sans-serif;
 }
 table {
@@ -132,7 +133,7 @@ main {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 3%;
-	height: 300em;
+	height: auto;
 }
 nav {
 	width: 250px;
