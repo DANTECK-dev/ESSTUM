@@ -188,38 +188,52 @@
 				<p>
 					Так как Raspberry Pi умеет загружаться только с SD-карты, то основная ОС будет находиться именно на ней. Нам нужны устройство для чтения карт памяти и собственно карточка объёмом от 4 Гбайт, желательно быстрая. Также нам понадобится внешний жёсткий диск с USB-интерфейсом, где будут храниться ваши файлы. В качестве примера мы рассмотрим подключение HDD с одним разделом NTFS. А для удобства подключения к Сети мы воспользуемся адаптером Wi-Fi. Список совместимых модулей находится <a href="http://elinux.org/RPi_USB_Wi-Fi_Adapters">здесь</a>, а полный список периферийного оборудования, которое можно подключить к Raspberry Pi, имеется <a href="http://elinux.org/RPi_VerifiedPeripherals">тут</a>. Крайне рекомендуется прикупить USB-хаб с отдельным питанием, так как с двумя собственными портами на плате особо не разгуляешься. От него можно запитать и саму плату, и внешний накопитель, и с портами проблем не будет. Про необходимость USB-клавиатуры и подходящего дисплея вы и сами догадались. Для сетевой деятельности понадобится внешний IP-адрес от провайдера (пусть даже динамический) и роутер, который поддерживает привязку IP-адреса к MAC, переадресацию портов для локальных клиентов, UPnP и работу с DDNS. В общем, подойдёт чуть ли не любой домашний маршрутизатор.
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.wdi.600.PNG" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.boot.600.png" align="right">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.wdi.600.PNG" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.boot.600.png" align="center">
+					</div>
 					Образ системы можно <a href="http://www.raspberrypi.org/downloads">скачать</a> на официальном сайте. На выбор даются сразу несколько дистрибутивов. Для самостоятельного знакомства с Raspberry Pi проще всего воспользоваться набором New Out of Box Software (NOOBS), в который входит медиацентр XBMC. Не менее прекрасен дистрибутив с удивительным для русского уха названием Pidora. Нам же для минимальной конфигурации достаточно образа Raspbian Wheezy. Запись образа на карточку рекомендуется делать в <a href="http://sourceforge.net/projects/win32diskimager/">программе</a> Win32 Disk Imager. Разобраться с ней нетрудно — главное, не перепутать букву диска и выбрать именно SD-карту, а не какой-нибудь другой накопитель. На запись образа уйдёт минут пять-десять. Вставляем готовую карточку в Raspberry Pi, подключаем клавиатуру и монитор, подцепляем питание к порту micro-USB. Мини-ПК не имеет отдельной кнопки включения, поэтому при наличии питания сразу же пытается загрузиться с SD-карты. На загрузку уходит менее минуты. По умолчанию логин pi, а пароль raspberrypi.
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_1.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_2.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_3.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_4.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_5.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_6.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_7.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_8.200.png" align="left">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_1.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_2.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_3.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_4.200.png" align="center">
+					</div>
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_5.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_6.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_7.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_8.200.png" align="center">
+					</div>
 					При первом включении сразу же запускается небольшая утилита, которая поможет настроить базовые параметры ОС. Вот в ней прямо по пунктам и пойдём. Во-первых, надо «развернуть» корневую ФС на всю SD-карту — Expand Filesystem. Во-вторых, поменять пароль на вход в ОС (Change User Password) — тут надо будет дважды ввести новый пароль. В третьем пункте нам предлагают включить загрузку рабочего стола, но для нас эта опция не обязательна. Четвёртый пункт по большому счёту тоже опционален — здесь настраивается локализация системы. Здесь надо обновить имеющиеся локали (Change Locale), добавив к английской русскую ru_RU.UTF8 и выбрав её же в качестве основной. Со сменой часового пояса (Change Timezone) вы и сами справитесь. В третьем подпункте меняются раскладки клавиатуры и способ переключения между ними. Тут надо выбрать вашу модель клавиатуры, а если в списке её нет, то указать Generic 105-key. Далее придётся выбрать русскую раскладку (Other → Russian → Russian) и указать сочетание клавиш для переключения языков ввода (мы выбрали Alt+Shift).
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_9.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_10.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_11.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_12.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_13.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_14.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_15.200.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_16.200.png" align="right">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_9.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_10.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_11.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_12.200.png" align="center">
+					</div>
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_13.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_14.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_15.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_16.200.png" align="center">
+					</div>
 					От настройки дополнительных клавиш лучше отказаться, выбрав везде первый пункт в списках (см. скриншоты). В самом конце мастер настройки предложит задействовать сочетания Ctrl+Alt+Backspace для быстрого завершения работы графического сервера. Если вы решили включить русскую локализацию, то ниже будут даны дополнительные инструкции. А пока возвращаемся к базовым настройкам и переходим к пункту Overclock, где можно разогнать процессор Raspberry Pi. Этот этап совсем необязателен, однако поднятие частоты до 800 МГц должно быть безболезненным для системы, хотя нас и предупреждают о возможных поломках. Дальнейший разгон не очень рекомендуется, да и заставляет задуматься о дополнительном охлаждении процессора.
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_17.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_18.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_19.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_20.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_21.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_22.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_23.200.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_24.200.png" align="left">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_17.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_18.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_19.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_20.200.png" align="center">
+					</div>
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_21.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_22.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_23.200.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.in_24.200.png" align="center">
+					</div>
 					Видеопамять выделяется из основной памяти, поэтому, если вы не используете графическую оболочку, в разделе Advanced Options → Memory Split можно уменьшить объём выделяемой видеопамяти. В том же разделе обязательно надо включить SSH-сервер, к которому мы будем в дальнейшем подключаться, — Advanced Options → SSH → Enable. Всё, теперь можно выходить из утилиты, выбрав кнопку Finish. От перезагрузки следует отказаться, так как нам надо настроить кое-что ещё. Если вы используете проводное подключение к Сети, то этот абзац можно пропустить — Raspberry Pi уже должен был получить настройки по DHCP от роутера и иметь доступ в Интернет. Теперь к нашему мини-компьютеру пора подключить внешний жёсткий диск и адаптер Wi-Fi. Первым делом проверяем наличие обоих в системе, а потом прописываем настройки Wi-Fi.
 					<br><br>
 					<i class="mark">lsusb sudo nano /etc/network/interfaces</i> 
@@ -248,11 +262,15 @@
 					<br><br>
 					В настройках роутера надо присвоить нашему Raspberry Pi статический IP-адрес и прописать параметры какого-нибудь провайдера DDNS. Подробнее процесс регистрации на примере DynDNS рассматривался в этой статье. В качестве SSH-клиента мы будем использовать старый добрый PuTTY. В строке адреса указываем pi@IP_адрес_Raspberry_Pi, а на вкладке Windows → Translation выбираем кодировку UTF-8. Профиль подключения в разделе Session сохраняем для удобства под любым именем и нажимаем Open. При первом подключении на запрос о добавлении ключей отвечаем положительно. Всё, на этом базовая настройка завершена, и на Raspberry Pi можно устанавливать любой подходящий софт.
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_1.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_2.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_3.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.pty_1.265.PNG" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.pty_2.265.PNG" align="right">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_1.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_2.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/1rt_3.png" align="center">
+					</div>
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.pty_1.265.PNG" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.pty_2.265.PNG" align="center">
+					</div>
 					А что именно? В «Мастерской» мы уже рассматривали создание собственного <a href="https://3dnews.ru/workshop/608198">VPN-сервера</a> для защиты трафика и обхода ограничений провайдеров, установку личного «облака» <a href="https://3dnews.ru/workshop/618868">OwnCloud</a>, развёртывание <a href="https://3dnews.ru/workshop/625306">реаниматора</a> с загрузкой по сети, использование одного из <a href="https://3dnews.ru/workshop/634726">аналогов</a> Dropbox и даже поднятие <a href="https://3dnews.ru/workshop/630629">сервера</a> для безопасного обмена файлами. Всё это и многое другое не так уж сложно сделать с помощью Raspberry Pi, а ведь мы сейчас рассматриваем его только в качестве экономичного микрокомпьютера с Linux на борту. Что уж говорить про множество других, более «железных» проектов, которые используют все аппаратные возможности этой замечательной платформы. Впрочем, не будем отвлекаться от поставленной задачи.
 				</p>
 				<a name="5"></a>
@@ -275,10 +293,12 @@
 					<br><br>
 					Веб-интерфейс доступен по адресу http://ip_адрес_raspberry_pi:8888/. Дальше всё просто — кликаем по Add Folder, выбираем папку на внешнем жёстком диске (/media/data/имя_папки), которую будем синхронизировать. Указываем секретный ключ или генерируем новый. Тут же можно сгенерировать QR-код для быстрого добавления папки в мобильном клиенте BitTorrent Sync. Остальные настройки совпадают с теми, что есть в настольных клиентах. Более подробную информацию о работе и настройках BitTorrent Sync ищите в официальном <a href="http://btsync.s3-website-us-east-1.amazonaws.com/BitTorrentSyncUserGuide.pdf">руководстве</a>.
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_1.400.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_2.400.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_3.400.png" align="right">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_4.400.png" align="right">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_1.400.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_2.400.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_3.400.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_4.400.png" align="center">
+					</div>
 					Что осталось? Как минимум не помешает пробросить порт веб-сервера на роутере, чтобы всегда иметь доступ к клиенту BitTorrent Sync, и добавить запуск клиента в автозагрузку. О пробросе должно быть сказано в инструкции роутера, а автозапуск мы сделаем самым простым способом — через планировщик заданий. Выполняем следующую команду:
 					<br><br>
 					<i class="mark">crontab -e</i>
@@ -287,8 +307,10 @@
 					<br><br>
 					<i class="mark">@reboot /home/pi/btsync/btsync --config /home/pi/btsync/btsync.conf</i>
 					<br><br>
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.rt_4.600.png" align="left">
-					<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_5.600.PNG" align="left">
+					<div class="inline">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.rt_4.600.png" align="center">
+						<img src="https://3dnews.ru/assets/external/illustrations/2013/08/07/658701/sm.bts_5.600.PNG" align="center">
+					</div>
 					Для проверки можно сразу же перезапустить Raspberry Pi и попробовать зайти в веб-интерфейс BitTorrent Sync как локально, так и удалённо, через http://ddns_имя_роутера:8888/. Вот и всё! Не забывайте периодически обновлять клиент.
 				</p>
 				<a name="6"></a>

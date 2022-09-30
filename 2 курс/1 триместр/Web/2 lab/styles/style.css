@@ -317,3 +317,8 @@ input {
 	color: lightsalmon;
 	font-weight: bold;
 }
+.inline {
+	display: inline-block;
+	width: 100%;
+	align-content: center;
+}
