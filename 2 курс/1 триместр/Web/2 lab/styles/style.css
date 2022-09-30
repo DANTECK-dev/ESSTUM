@@ -279,6 +279,9 @@ input {
 	border-radius: 9px;
 	padding: 10px 0px 10px 0px;
 	text-align: center;
+	top: 15px;
+    position: sticky;
+    min-height: 2em;
 }
 .content_menu>li {
 	background-color: white;
