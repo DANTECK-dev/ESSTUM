@@ -1,0 +1,3 @@
+Successfully: file1.txt 
+Successfully: file2.txt 
+Successfully: logcopy.txt 
